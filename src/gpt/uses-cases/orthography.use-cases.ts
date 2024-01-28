@@ -1,7 +1,14 @@
+import { Options } from "@nestjs/common";
 
-export const orthographyCheckUseCase = async() => {
+interface Options {
+    prompt: string;
+}
 
+export const orthographyCheckUseCase = async( options: Options ) => {
+
+    const { prompt } = options;
     return {
-        hola: 'Mundo desde UseCase'
+        prompt: prompt,
+        apikey: process.env.OPENAI_API_KEY,
     }
 }
